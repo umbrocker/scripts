@@ -1,0 +1,11 @@
+#!/bin/bash
+
+workingdir=$(pwd)
+echo "[+] Adding executable rights to scripts: chmod +x *.sh"
+chmod +x *.sh
+for i in $(ls -1 *.sh)
+do
+	newname=$(echo $i | cut -d'.' -f1)
+   	echo "[+] Creating shortcut: sudo ln -s $workingdir/$i /usr/local/bin/$newname"
+	sudo ln -s $workingdir/$i /usr/local/bin/$newname
+done
