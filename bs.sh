@@ -1,9 +1,17 @@
 #!/bin/bash
-# Base scan
+
+
+# Description:
+# 	Runs 2 nmap scans on your target:
+# 		- First, it looks for all open ports;
+# 		- Second, it will enumerates the open ports for services and runs the default nmap scripts.
+# 	If it finds http like services, then it runs 'whatweb' on those ports too.
+# 	After that, it generates a markdown file, that can be easily imported into your obsidian notes.
+# Dependencies:
+# 	cut,sudo,sed,grep,nmap,whatweb,tr
 
 if [ $# -ne 1 ]; then
     echo "[*] Usage: $0 <target_ip>"
-    read
     exit 1
 fi
 
