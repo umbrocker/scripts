@@ -16,4 +16,6 @@ cd /opt/scripts
 git pull
 # if you see new scripts, than run installer again
 ```
-
+# TODO
+- write descriptions to scripts
+- create help script
