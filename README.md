@@ -9,3 +9,11 @@ cd scripts
 chmod +x installer
 ./installer
 ```
+
+# updating scripts
+```bash
+cd /opt/scripts
+git pull
+# if you see new scripts, than run installer again
+```
+
