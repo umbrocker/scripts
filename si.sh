@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Description:
+# 	Simple network interface lister.
+# Dependecies:
+# 	ip,awk,cut
+
 echo -e "┌───────────────────────┬───────────────────────┐"
 echo -e "│\tInterface\t│\tAddress\t\t│"
 echo -e "├───────────────────────┼───────────────────────┤"

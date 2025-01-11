@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Description:
+# 	If you don't want to always type the usual stuff for getting a fully interactive shell,
+# 	just use this command, and it will be copied to your clipboard.
+# Dependencies:
+# 	xclip
+
 if [ -z "$1" ]; then
 	echo -en "[*] Copied to clipboard:\npython -c 'import pty;pty.spawn(\"/bin/bash\")'"
 	echo -n "python -c 'import pty;pty.spawn(\"/bin/bash\")'" | xclip -sel clip

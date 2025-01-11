@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Description:
+# 	If you don't want to keep in mind your target's IP, this script will help you.
+# 	It creates a file in your home folder with your target's IP address: $HOME/.config/target
+# 	and also adds a line to your shell's rc file, to have an environment variable $target, with the IP address.
+# 	On top of that, it creates a line in your /etc/hosts file, that points the domainname 'target' to the IP.
+# Dependencies:
+# 	sudo,sed,tee,grep
+
 if [ $# -ne 1 ]; then
     echo "[*] Usage: $0 <target_ip>"
     exit 1
