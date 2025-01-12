@@ -53,7 +53,7 @@ else
   	echo "[+] Added: '$export_line' to $rc_file file."
 fi
 echo "[!] You need to use this command: source $rc_file"
-echo "source $rc_file" | xclip -sel clip
+echo -n "source $rc_file" | xclip -sel clip
 
 hostname="target"
 hosts_file="/etc/hosts"
