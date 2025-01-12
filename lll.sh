@@ -9,7 +9,12 @@
 if [ $# -ne 1 ]; then
 	port=443
 else
-	port=$1
+	if [[ "$1" =~ ^[0-9]+$ ]]; then
+		port=$1
+	else
+		echo "[*] Usage: $(basename $0) [port]"
+		exit 1
+	fi
 fi
 echo "[+] Starting listener on port $port"
 sudo rlwrap nc -nlvp $port

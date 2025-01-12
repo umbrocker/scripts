@@ -8,18 +8,18 @@
 # Short description: it | interactive shell line copied to clipboard
 
 function help() {
-    echo "[*] Usage:"
-	echo "[*] For normal python install: $(basename $0)"
-	echo "[*] For python3 install: $(basename $0) 3"
+    echo "[*] Usage: $(basename $0) [3]"
 }
 
 if [ -z "$1" ]; then
 	echo -en "[*] Copied to clipboard:\npython -c 'import pty;pty.spawn(\"/bin/bash\")'"
 	echo -n "python -c 'import pty;pty.spawn(\"/bin/bash\")'" | xclip -sel clip
 elif [ "$1" == "3" ]; then
-	echo -en "[*] Copied to clipboard:\npython3 -c 'import pty;pty.spawn(\"/bin/bash\")'"
+	echo -e "[*] Copied to clipboard:\npython3 -c 'import pty;pty.spawn(\"/bin/bash\")'"
 	echo -n "python3 -c 'import pty;pty.spawn(\"/bin/bash\")'" | xclip -sel clip
 else
 	help
 fi
-
+echo -e "\n"
+echo -e "[+] Steps:\nctrl+z\nssty -a | head -1\t# this line is to check your current terminal size"
+echo -e "ssty raw -echo\nfg\nreset\nstty rows [rows] columns [columns]\nexport TERM=xterm\nexport SHELL=bash"

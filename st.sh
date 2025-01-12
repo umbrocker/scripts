@@ -10,7 +10,7 @@
 # Short description: st | writing target IP into a file, exporting it as environment variable and adding it to hosts file
 
 if [ $# -ne 1 ]; then
-    echo "[*] Usage: $0 <target_ip>"
+	echo "[*] Usage: $(basename $0) <target_ip>"
     exit 1
 fi
 

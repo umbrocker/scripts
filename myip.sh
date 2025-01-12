@@ -12,6 +12,10 @@ if [ $# -ne 1 ]; then
 else
 	interface=$1
 	ip_address=$(ip -4 -o addr show $interface | awk '{print $4}' | cut -d'/' -f1)
+	if [ -z "$ip_address" ]; then
+		echo "[*] Usage: $(basename $0) [interface]"
+		exit 1
+	fi
 fi
 echo "[+] IP address $ip_address copied to clipboard."
 echo -n $ip_address | xclip -sel clip

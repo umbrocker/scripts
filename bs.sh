@@ -12,7 +12,7 @@
 # Short description: bs | running basic nmap scans (all ports, service scan) and whatweb, then generating report in md 
 
 if [ $# -ne 1 ]; then
-    echo "[*] Usage: $0 <target_ip>"
+	echo "[*] Usage: $(basename $0) <target_ip>"
     exit 1
 fi
 
