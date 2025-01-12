@@ -1,5 +1,6 @@
 # scripts
-My useful bash scripts
+My useful bash scripts for CTFs
+Every script has its own description inside them.
 
 # installation
 ```bash
@@ -16,6 +17,3 @@ cd /opt/scripts
 git pull
 # if you see new scripts, than run installer again
 ```
-# TODO
-- write descriptions to scripts
-- create help script
