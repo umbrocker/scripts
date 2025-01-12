@@ -17,3 +17,6 @@ cd /opt/scripts
 git pull
 # if you see new scripts, than run installer again
 ```
+
+# TODO:
+- add uninstall script
