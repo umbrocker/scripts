@@ -5,6 +5,7 @@
 # 	just use this command, and it will be copied to your clipboard.
 # Dependencies:
 # 	xclip
+# Short description: it | interactive shell line copied to clipboard
 
 function help() {
     echo "[*] Usage:"

@@ -4,6 +4,7 @@
 # 	Simple network interface lister.
 # Dependecies:
 # 	ip,awk,cut
+# Short description: si | showing all interfaces with IP addresses
 
 echo -e "┌───────────────────────┬───────────────────────┐"
 echo -e "│\tInterface\t│\tAddress\t\t│"

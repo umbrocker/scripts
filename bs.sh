@@ -9,6 +9,7 @@
 # 	After that, it generates a markdown file, that can be easily imported into your obsidian notes.
 # Dependencies:
 # 	cut,sudo,sed,grep,nmap,whatweb,tr
+# Short description: bs | running basic nmap scans (all ports, service scan) and whatweb, then generating report in md 
 
 if [ $# -ne 1 ]; then
     echo "[*] Usage: $0 <target_ip>"

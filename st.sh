@@ -7,6 +7,7 @@
 # 	On top of that, it creates a line in your /etc/hosts file, that points the domainname 'target' to the IP.
 # Dependencies:
 # 	sudo,sed,tee,grep,xclip
+# Short description: st | writing target IP into a file, exporting it as environment variable and adding it to hosts file
 
 if [ $# -ne 1 ]; then
     echo "[*] Usage: $0 <target_ip>"
@@ -26,7 +27,6 @@ echo $new_ip > $directory/target
 
 current_shell=$(basename "$SHELL")
 
-# Meghatározza az rc fájl nevét a shell alapján
 case "$current_shell" in
   bash)
     rc_file="$HOME/.bashrc"

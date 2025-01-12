@@ -4,6 +4,8 @@
 # 	Easy to use script to copy your IP address to clipboard, from interactive menu, using fzf.
 # Dependencies:
 # 	awk,cut,ip,fzf,xclip
+# Short description: myip | copying your selected interface's IP address to clipboard
+
 if [ $# -ne 1 ]; then
 	selected=$(ip -4 -o addr show | awk '{print $2,$4}' | cut -d'/' -f1 | tr ' ' '\t' | fzf)
 	ip_address=$(echo $selected | awk '{print $2}')
