@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Alapértelmezett értékek
+output_file=""
+help_message="Usage: valami.sh [-h] [-o output_file]
+Options:
+  -h                 Show this help message and exit.
+  -o output_file     Specify the output file."
+
+# Argumentumok kézi feldolgozása
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -h)
+      echo "$help_message"
+      exit 0
+      ;;
+    -o)
+      shift
+      if [ $# -eq 0 ]; then
+        echo "Error: -o requires a file argument." >&2
+        exit 1
+      fi
+      output_file="$1"
+      ;;
+    -*)
+      echo "Invalid option: $1" >&2
+      echo "$help_message" >&2
+      exit 1
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      echo "$help_message" >&2
+      exit 1
+      ;;
+  esac
+  shift
+done
+
+# Script logika
+if [ -n "$output_file" ]; then
+  echo "Writing output to $output_file"
+  echo "Script result: Success" > "$output_file"
+else
+  echo "No output file specified. Printing to stdout:"
+  echo "Script result: Success"
+fi
+
