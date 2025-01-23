@@ -1,6 +1,10 @@
 #!/bin/bash
 
+# TODO:
+#	- file chosing option with fzf;
+#	- target operating system choices;
 # Description:
+#	Need a lot of work, not usable right now.
 #       Easy to use script to start a python http server, to share files via web. Even adds download string to clipboard. 
 # Dependencies:
 #       awk,cut,ip,fzf,xclip
