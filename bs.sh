@@ -21,13 +21,13 @@ echo "[+] Scanning for all ports."
 echo "[+] Creating directory: $PWD/scans"
 mkdir -p scans
 echo "[!] Need sudo rights."
-sudo nmap -sS -p- -oA scans/$1_all_ports -Pn $1
+sudo nmap -T5 -sS -p- -oA scans/$1_all_ports -Pn $1
 echo "[+] Outputs saved as: $PWD/scans/$1_all_ports.nmap, $1_all_ports.gnmap, $1_all_ports.xml"
 
 if [ -e  scans/$1_all_ports.nmap ]; then
 	ports=$(cat scans/$1_all_ports.nmap | grep open | cut -d '/' -f1 | tr '\n' ',' | sed 's/,$//g')
 	echo "[+] Scanning for services on open ports: $ports"
-	nmap -sC -sV -p $ports -oA scans/$1_service_scan $1
+	nmap -T5 -sC -sV -p $ports -oA scans/$1_service_scan $1
 	echo "[+] Outputs saved as: $PWD/scans/$1_service_scan.nmap, $1_service_scan.gnmap, $1_service_scan.xml"
 	echo "[*] Scans finished."
 else
