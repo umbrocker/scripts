@@ -8,7 +8,8 @@
 
 
 # Gyűjtsük össze az adatokat egy változóba
-output=""
+# output=""
+output="│ ───────── \t ─────── \n"
 for interface in $(ip -o link show | awk -F': ' '{print $2}'); do
     ip_address=$(ip -4 -o addr show $interface | awk '{print $4}' | cut -d'/' -f1)
     if [ -n "$ip_address" ]; then
