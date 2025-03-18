@@ -7,7 +7,7 @@
 # Short description: myip | copying your selected interface's IP address to clipboard
 
 if [ $# -ne 1 ]; then
-	selected=$(ip -4 -o addr show | awk '{print $2,$4}' | cut -d'/' -f1 | tr ' ' '\t' | fzf)
+	selected=$(ip -4 -o addr show | awk '{print $2,$4}' | cut -d'/' -f1 | tr ' ' '\t' | fzf --header="[?] Which ip should be copied to clipboard?" --border=bold --border=rounded --margin=15% --color=dark --height=75% --header-first --layout=reverse)
 	ip_address=$(echo $selected | awk '{print $2}')
 else
 	interface=$1
