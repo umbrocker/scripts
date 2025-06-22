@@ -2,7 +2,7 @@
 
 # Alapértelmezett értékek
 output_file=""
-help_message="Usage: valami.sh [-h] [-o output_file]
+help_message="Usage: $0 [-h] [-o output_file]
 Options:
   -h                 Show this help message and exit.
   -o output_file     Specify the output file."
