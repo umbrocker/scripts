@@ -1,5 +1,5 @@
 # scripts
-My useful bash scripts for CTFs<br>
+My useful bash and python scripts for CTFs<br>
 Every script has its own description inside them.
 
 # installation
