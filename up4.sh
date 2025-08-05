@@ -6,7 +6,7 @@
 # 	xclip,fzf,python3,ls,column,awk,tr,cut,ip
 # Short description: up4 | starting an HTTP server in current directory
 
-if [ $# -ne 1 ]; then
+if [ $# -lt 1 ]; then
 	port=80
 else
   port="$@"
