@@ -7,7 +7,7 @@
 # Short description: up4 | starting an HTTP server in current directory
 
 if [ $# -lt 1 ]; then
-	port=80
+  port=80
 else
   port="$@"
 fi
@@ -20,18 +20,18 @@ myip=$(echo $selected | awk '{print $2}')
 file=$(ls -1 | fzf --header="[?] Which file?" --border=bold --border=rounded --margin=15% --color=dark --height=75% --header-first --layout=reverse)
 
 case "$selection" in
-  "wget")
-    echo -n "wget http://$myip:$port/$file" | xclip -sel clip
-    ;;
-  "certutil")
-    echo -n "certutil -urlcache -split -f http://$myip:$port/$file" | xclip -sel clip
-    ;;
-  "Invoke-WebRequest")
-    echo -n "iwr -Uri http://$myip:$port/$file" | xclip -sel clip
-    ;;
-  "curl")
-    echo -n "curl -o $file http://$myip:$port/$file" | xclip -sel clip
-    ;;
+"wget")
+  echo -n "wget http://$myip:$port/$file" | xclip -sel clip
+  ;;
+"certutil")
+  echo -n "certutil -urlcache -split -f http://$myip:$port/$file" | xclip -sel clip
+  ;;
+"Invoke-WebRequest")
+  echo -n "iwr -Uri http://$myip:$port/$file" | xclip -sel clip
+  ;;
+"curl")
+  echo -n "curl -o $file http://$myip:$port/$file" | xclip -sel clip
+  ;;
 esac
 
-ls -1 | column && python3 -m http.server $port
+ls -1 | column && echo "$ python3 -m http.server $port" && python3 -m http.server $port
