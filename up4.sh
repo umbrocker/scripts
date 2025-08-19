@@ -34,4 +34,5 @@ case "$selection" in
   ;;
 esac
 
+echo "[+] Listings for directory $PWD"
 ls -1 | column && echo "$ python3 -m http.server $port" && python3 -m http.server $port
