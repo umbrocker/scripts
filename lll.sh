@@ -17,5 +17,5 @@ else
 	fi
 fi
 echo "[+] Starting listener on port $port"
-echo "\$ sudo rlwrap nc -nlvp $port"
-sudo rlwrap nc -nlvp $port
+echo "\$ sudo rlwrap -cAr nc -nlvp $port"
+sudo rlwrap -cAr nc -nlvp $port
