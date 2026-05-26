@@ -9,6 +9,8 @@ sudo git clone https://github.com/umbrocker/scripts
 cd scripts
 chmod +x installer
 ./installer
+cd ~
+h
 ```
 
 # updating scripts
