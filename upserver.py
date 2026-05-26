@@ -4,7 +4,7 @@
 # 	Starts an http python3 upload server on chosen port.
 # Dependencies:
 # 	python3, python3-cgi, python3-http-server, python3-os
-# Short description: uploadserver | starts python3 http server to upload files with curl.
+# Short description: upserver | starts python3 http server to upload files with curl.
 
 import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -53,6 +53,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     print(f"Starting server on port {args.port}, uploads dir: {UPLOAD_DIR}")
+    print(f'[*] Example usage: curl -X POST -H "Content-Type: multipart/form-data" -F "file=@alma.txt" http://[SERVER IP]:{args.port}')
     server = HTTPServer(('0.0.0.0', args.port), MultipartUploadHandler)
     server.serve_forever()
 
